@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <div className={'flex gap-4 border-b-2 mb-6'}>
         <Link href="/">Main</Link>
-        <Link href="/form">Form page</Link>
+        <Link href="/blank">Blank page</Link>
       </div>
 
       {children}</body>

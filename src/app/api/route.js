@@ -9,7 +9,7 @@ export async function POST(request) {
   const newId = data[data.length - 1].id + 1
   data.push({id: newId, name: res})
 
-  // await new Promise((resolve) => setTimeout(resolve, 5000))
+  await new Promise((resolve) => setTimeout(resolve, 5000))
 
   return Response.json({status: 'ok'})
 }

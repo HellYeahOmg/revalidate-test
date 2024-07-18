@@ -1,10 +1,12 @@
 import {RevalidateButton} from "@/app/revalidateButton";
+import {Form} from "@/app/form";
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export default async function Home() {
-  const data = await fetch('http://localhost:3000/api', { cache: 'no-store' }).then(res => res.json())
+  const data = await fetch('http://localhost:3000/api', { cache: 'no-store', next: { tags: ['data'] } })
+    .then(res => res.json())
 
   return (
     <main>
@@ -15,6 +17,7 @@ export default async function Home() {
           <p>{item.name}</p><p></p>
         </div>)}
       </div>
+      <Form></Form>
       <RevalidateButton></RevalidateButton>
     </main>
   );

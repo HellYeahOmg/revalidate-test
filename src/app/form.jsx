@@ -1,6 +1,7 @@
 'use client'
 
 import {useState} from "react";
+import {revalidateData} from "@/app/actions";
 
 export const Form = () => {
   const [text, setText] = useState('')
@@ -17,7 +18,7 @@ export const Form = () => {
 
     setIsLoading(false)
     setText('')
-    // revalidateData()
+    revalidateData()
   }
 
   return <div>
