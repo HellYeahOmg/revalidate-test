@@ -1,8 +1,10 @@
 'use client'
 
 import {useState} from "react";
+import { useRouter } from "next/navigation";
 
 export const Form = () => {
+  const router = useRouter()
   const [text, setText] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
@@ -10,13 +12,18 @@ export const Form = () => {
   const handleSubmit = async () => {
     setIsLoading(true)
 
-    await fetch('http://localhost:3000/api', {
+    const data = await fetch('http://localhost:3000/api', {
       method: 'POST',
       body: JSON.stringify(text)
     })
+    const result = await data.json()
 
     setIsLoading(false)
     setText('')
+
+    if(result.status==="ok"){
+      router.push("/")
+    }
     // revalidateData()
   }
 
