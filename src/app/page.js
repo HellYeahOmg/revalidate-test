@@ -1,10 +1,11 @@
-import {RevalidateButton} from "@/app/revalidateButton";
-import {Form} from "@/app/form";
+import { RevalidateButton } from "@/app/revalidateButton";
+import { Form } from "@/app/form";
 
 export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// export const revalidate = 0
 
 export default async function Home() {
+  console.log("HOME")
   const data = await fetch('http://localhost:3000/api', { next: { tags: ['data'] } })
     .then(res => res.json())
 
@@ -13,9 +14,9 @@ export default async function Home() {
       <div className={'mb-8'}>
         <p>data list:</p>
         {data.map(item =>
-          <div  key={item.id}>
-          <p>{item.name}</p><p></p>
-        </div>)}
+          <div key={item.id}>
+            <p>{item.name}</p><p></p>
+          </div>)}
       </div>
       <Form></Form>
       <RevalidateButton></RevalidateButton>
