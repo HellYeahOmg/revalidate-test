@@ -14,13 +14,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
 
-      <body className={inter.className}>
-      <div className={'flex gap-4 border-b-2 mb-6'}>
-        <Link href="/">Main</Link>
-        <Link href="/blank">Blank page</Link>
-      </div>
+      <body className="bg-black">
+        <div className={'flex gap-4 border-b-2 mb-6'}>
+          <Link href="/">Main</Link>
+          <Link href="/blank">Blank page</Link>
+        </div>
 
-      {children}</body>
+        {children}</body>
     </html>
   );
 }
